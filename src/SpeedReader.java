@@ -1,18 +1,14 @@
 public class SpeedReader {
 
     public static void main(String[] args) {
-        while (true) {
-            In file = new In("speed.txt");
-            while (!file.isEmpty()) {
+        for (;;) {
+            for (In file = new In("speed.txt"); !file.isEmpty(); ) {
                 String s = file.readLine();
-                int i = 0;
-                while  (i < s.length()) {
-                    String w = "";
-                    while (i < s.length() && s.charAt(i) != ' ') {
+                for  (int i = 0; i < s.length(); ++i) {
+                    String w;
+                    for (w = ""; i < s.length() && s.charAt(i) != ' '; ++i) {
                         w = w + s.charAt(i);
-                        ++i;
                     }
-                    ++i;
                     StdDraw.clear();
                     StdDraw.text(0.5, 0.5, w);
                     StdDraw.pause(300);
