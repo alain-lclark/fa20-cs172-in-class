@@ -1,6 +1,6 @@
 public class Minesweeper {
 
-    public static void main(String[] args) {
+    public static void main(String[] unused) {
         StdOut.println("Welcome to Minesweeper");
 
         int SIZE = 10;
@@ -21,6 +21,12 @@ public class Minesweeper {
         }
     }
 
+    /**
+     * Returns true if the player has won the game.
+     * @param minefield  mine locations
+     * @param revealed  player identified mine-less locations
+     * @return true if the player has won the game, false otherwise
+     */
     public static boolean hasWon(boolean[][] minefield, boolean[][] revealed) {
         for (int x = 0; x < minefield.length; ++x) {
             for (int y = 0; y < minefield[x].length; ++y) {
@@ -36,6 +42,16 @@ public class Minesweeper {
     }
 
     public static void initMinefield(boolean[][] minefield, int numMines) {
+        for (int i = 0; i < numMines; ++i) {
+            int x = StdRandom.uniform(minefield.length);
+            int y = StdRandom.uniform(minefield[x].length);
+            if (minefield[x][y]) {
+                --i;
+            }
+            else {
+                minefield[x][y] = true;
+            }
+        }
     }
 
     public static void drawMinefield(boolean[][] minefield, boolean[][] revealed) {
