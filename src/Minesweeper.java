@@ -38,7 +38,39 @@ public class Minesweeper {
         return true;
     }
 
+    /**
+     * Returns the number of mines located immediately next to the current location.
+     *
+     * Near means one of the eight surrounding locations (N, S, E, W, NE, SE, SW, NW).
+     *
+     * There is no mine at [x, y].
+     * @param minefield  mine locations
+     * @param x  current x position
+     * @param y  current y position
+     * @return the number of mines located near the current location.
+     */
+    public static int countNeighboringMines(boolean[][] minefield, int x, int y) {
+        int count = 0;
+        return count;
+    }
+
     public static void processClick(boolean[][] minefield, boolean[][] revealed) {
+        while (!StdDraw.isMousePressed()) {
+            ; // do nothing!!
+        }
+
+        int x = (int)Math.round(StdDraw.mouseX());
+        int y = (int)Math.round(StdDraw.mouseY());
+
+        while (StdDraw.isMousePressed()) {
+            ; // do nothing!!
+        }
+
+        autoClear(minefield, revealed, x, y);
+
+        if (minefield[x][y]) {
+            StdOut.println("BOOM!");
+        }
     }
 
     public static void initMinefield(boolean[][] minefield, int numMines) {
@@ -55,6 +87,9 @@ public class Minesweeper {
     }
 
     public static void drawMinefield(boolean[][] minefield, boolean[][] revealed) {
+    }
+
+    public static void autoClear(boolean[][] minefield, boolean[][] revealed, int x, int y) {
     }
 
 }
