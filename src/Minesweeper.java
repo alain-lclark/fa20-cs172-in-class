@@ -11,6 +11,8 @@ public class Minesweeper {
 
         initMinefield(minefield, NUM_MINES);
 
+        StdDraw.setScale(-0.5, minefield.length - 0.5);
+
         drawMinefield(minefield, revealed);
         while (!hasWon(minefield, revealed)) {
             processClick(minefield, revealed);
@@ -87,6 +89,28 @@ public class Minesweeper {
     }
 
     public static void drawMinefield(boolean[][] minefield, boolean[][] revealed) {
+        StdDraw.clear();
+        for (int x = 0; x < minefield.length; ++x) {
+            for (int y = 0; y < minefield[0].length; ++y) {
+                if (!revealed[x][y]) {
+                    StdDraw.setPenColor(StdDraw.BLUE);
+                    StdDraw.filledSquare(x, y, 0.5);
+                    StdDraw.setPenColor();
+                }
+                else if (minefield[x][y]) {
+                    StdDraw.setPenColor(StdDraw.RED);
+                    StdDraw.filledCircle(x, y, 0.3);
+                    StdDraw.setPenColor();
+                }
+                else {
+                    int n = countNeighboringMines(minefield, x, y);
+                    if (n != 0) {
+                        StdDraw.text(x, y, "" + n);
+                    }
+                }
+                StdDraw.square(x, y, 0.5);
+            }
+        }
     }
 
     public static void autoClear(boolean[][] minefield, boolean[][] revealed, int x, int y) {
