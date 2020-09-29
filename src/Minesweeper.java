@@ -53,6 +53,16 @@ public class Minesweeper {
      */
     public static int countNeighboringMines(boolean[][] minefield, int x, int y) {
         int count = 0;
+        for (int i = x - 1; i <= x + 1; ++i) {
+            for (int j = y - 1; j <= y + 1; ++j) {
+                if (i >= 0 && i < minefield.length
+                        && j >= 0 && j < minefield[0].length) {
+                    if (minefield[i][j]) {
+                        ++count;
+                    }
+                }
+            }
+        }
         return count;
     }
 
@@ -114,6 +124,19 @@ public class Minesweeper {
     }
 
     public static void autoClear(boolean[][] minefield, boolean[][] revealed, int x, int y) {
+        if (!revealed[x][y]) {
+            revealed[x][y] = true;
+            if (countNeighboringMines(minefield, x, y) == 0) {
+                for (int i = x - 1; i <= x + 1; ++i) {
+                    for (int j = y - 1; j <= y + 1; ++j) {
+                        if (i >= 0 && i < minefield.length
+                                && j >= 0 && j < minefield[0].length) {
+                            autoClear(minefield, revealed, i, j);
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
