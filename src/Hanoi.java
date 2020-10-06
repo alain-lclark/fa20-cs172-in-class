@@ -1,6 +1,9 @@
 public class Hanoi {
 
+    static int numberOfMoves;
+
     static public void main(String[] unused) {
+        numberOfMoves = 0;
         move(4, 'A', 'B', 'C');
     }
 
@@ -9,7 +12,8 @@ public class Hanoi {
      */
     private static void move(int n, char source, char destination, char helper) {
         if (n == 1) {
-            StdOut.printf("Move the top disc of peg %c to peg %c\n", source, destination);
+            ++numberOfMoves;
+            StdOut.printf("%d: Move the top disc of peg %c to peg %c\n", numberOfMoves, source, destination);
         }
         else {
             move(n - 1, source, helper, destination);
