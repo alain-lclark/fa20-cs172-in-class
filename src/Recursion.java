@@ -1,8 +1,14 @@
 public class Recursion {
 
+    static int level;
+
     public static void main(String[] args) {
-        runFactorials();
-        runFibonaccis();
+        level = 0;
+        //runFactorials();
+        //runFibonaccis();
+        //factorialTrace(4);
+        //fibonacciTrace(8);
+        StdOut.printf("fibonacci(50)= %d\n", fibonacci(50));
     }
 
     public static void runFactorials() {
@@ -39,13 +45,53 @@ public class Recursion {
 
     public static long factorial(long n) {
         if (n == 0) return 1;
-        return factorial(n - 1)*n;
+        return n*factorial(n - 1);
     }
+
+    private static long[] f = new long[92];
 
     public static long fibonacci(long n) {
         if (n == 0) return 0;
         if (n == 1) return 1;
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        if (f[(int)n] > 0) return f[(int)n];
+        f[(int)n] = fibonacci(n - 1) + fibonacci(n - 2);
+        return f[(int)n];
+    }
+
+    public static long factorialTrace(long n) {
+        StdOut.println(indent(level) + "factorial(" + n + ")");
+        if (n == 0) {
+            StdOut.println(indent(level) + "return 1");
+            return 1;
+        }
+        ++level;
+        long v = n*factorialTrace(n - 1);
+        --level;
+        StdOut.println(indent(level) + "return " + v);
+        return v;
+    }
+
+    public static long fibonacciTrace(long n) {
+        StdOut.println(indent(level) + "fibonacci(" + n + ")");
+        if (n == 0) {
+            StdOut.println(indent(level) + "return 0");
+            return 0;
+        }
+        if (n == 1) {
+            StdOut.println(indent(level) + "return 1");
+            return 1;
+        }
+        ++level;
+        long v = fibonacciTrace(n - 1) + fibonacciTrace(n - 2);
+        --level;
+        StdOut.println(indent(level) + "return " + v);
+        return v;
+    }
+
+    public static String indent(int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 2*n; ++i) sb.append(" ");
+        return sb.toString();
     }
 
 }
