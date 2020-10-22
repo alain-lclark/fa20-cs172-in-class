@@ -16,12 +16,20 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
+    public void nudgeX(int amount) {
+        this.x += amount;
+    }
+
     public void nudgeX() {
-        this.x += 1;
+        this.nudgeX(1);
+    }
+
+    public void nudgeY(int amount) {
+        this.y += amount;
     }
 
     public void nudgeY() {
-        this.y += 1;
+        this.nudgeY(1);
     }
 
     /**
@@ -35,6 +43,8 @@ public class Point {
         StdOut.println(zero);
         p.nudgeX();
         p.nudgeY();
+        StdOut.println(p);
+        p.nudgeX(-5);
         StdOut.println(p);
     }
 
