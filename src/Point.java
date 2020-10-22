@@ -32,6 +32,14 @@ public class Point {
         this.nudgeY(1);
     }
 
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        Point q = (Point)o;
+        if (this.x == q.x && this.y == q.y) return true;
+        return false;
+    }
+
     /**
      * Small test of basic functionality.
      * @param unused  unused command-line arguments
