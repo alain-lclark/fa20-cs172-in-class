@@ -8,6 +8,11 @@ public class Point {
         this.y = y;
     }
 
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
+
     public String toString() {
         return "(" + x + "," + y + ")";
     }
@@ -19,6 +24,8 @@ public class Point {
     public static void main(String[] unused) {
         Point p = new Point(1, 11);
         StdOut.println(p);
+        Point zero = new Point();
+        StdOut.println(zero);
     }
 
 }
