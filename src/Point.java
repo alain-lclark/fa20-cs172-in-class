@@ -16,6 +16,14 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
+    public void nudgeX() {
+        this.x += 1;
+    }
+
+    public void nudgeY() {
+        this.y += 1;
+    }
+
     /**
      * Small test of basic functionality.
      * @param unused  unused command-line arguments
@@ -25,6 +33,9 @@ public class Point {
         StdOut.println(p);
         Point zero = new Point();
         StdOut.println(zero);
+        p.nudgeX();
+        p.nudgeY();
+        StdOut.println(p);
     }
 
 }
