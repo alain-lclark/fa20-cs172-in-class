@@ -12,4 +12,13 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
+    /**
+     * Small test of basic functionality.
+     * @param unused  unused command-line arguments
+     */
+    public static void main(String[] unused) {
+        Point p = new Point(1, 11);
+        StdOut.println(p);
+    }
+
 }
