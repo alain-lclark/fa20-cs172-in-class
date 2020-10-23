@@ -10,6 +10,12 @@ public class PointClient {
         // p.y = -5;
         p = new Point(10, -5);
         StdOut.println(p);
+        Point q = new Point(10, -5);
+        StdOut.println(p.equals(q));
+
+        StdOut.println(p.getX());
+        p.setX(-55);
+        StdOut.println(p);
     }
 
 }
