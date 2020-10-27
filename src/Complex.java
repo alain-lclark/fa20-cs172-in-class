@@ -12,6 +12,14 @@ public class Complex {
         this(0.0, 0.0);
     }
 
+    public double real() {
+        return this.real;
+    }
+
+    public double imaginary() {
+        return this.imaginary;
+    }
+
     public Complex add(Complex c) {
         double real = this.real + c.real;
         double imaginary = this.imaginary + c.imaginary;
@@ -33,6 +41,8 @@ public class Complex {
         Complex z = new Complex(0.0, 0.0);
         Complex r = z.add(new Complex(1.0, 1.0));
         StdOut.println(r);
+
+        StdOut.print(r.imaginary());
     }
 
 }
