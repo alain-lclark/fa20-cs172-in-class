@@ -1,7 +1,7 @@
 public class Complex {
 
-    private double real;
-    private double imaginary;
+    private final double real;
+    private final double imaginary;
 
     public Complex(double real, double imaginary) {
         this.real = real;
@@ -12,11 +12,18 @@ public class Complex {
         this(0.0, 0.0);
     }
 
+    public double real() {
+        return this.real;
+    }
+
+    public double imaginary() {
+        return this.imaginary;
+    }
+
     public Complex add(Complex c) {
-        Complex r = new Complex();
-        r.real = this.real + c.real;
-        r.imaginary = this.imaginary + c.imaginary;
-        return r;
+        double real = this.real + c.real;
+        double imaginary = this.imaginary + c.imaginary;
+        return new Complex(real, imaginary);
     }
 
     public String toString() {
@@ -28,6 +35,14 @@ public class Complex {
         if (this.getClass() != o.getClass()) return false;
         Complex c = (Complex)o;
         return this.real == c.real && this.imaginary == c.imaginary;
+    }
+
+    public static void main(String[] unused) {
+        Complex z = new Complex(0.0, 0.0);
+        Complex r = z.add(new Complex(1.0, 1.0));
+        StdOut.println(r);
+
+        StdOut.print(r.imaginary());
     }
 
 }
