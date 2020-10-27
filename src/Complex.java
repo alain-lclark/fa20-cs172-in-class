@@ -29,4 +29,10 @@ public class Complex {
         return this.real == c.real && this.imaginary == c.imaginary;
     }
 
+    public static void main(String[] unused) {
+        Complex z = new Complex(0.0, 0.0);
+        Complex r = z.add(new Complex(1.0, 1.0));
+        StdOut.println(r);
+    }
+
 }
