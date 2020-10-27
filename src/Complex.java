@@ -13,10 +13,9 @@ public class Complex {
     }
 
     public Complex add(Complex c) {
-        Complex r = new Complex();
-        r.real = this.real + c.real;
-        r.imaginary = this.imaginary + c.imaginary;
-        return r;
+        double real = this.real + c.real;
+        double imaginary = this.imaginary + c.imaginary;
+        return new Complex(real, imaginary);
     }
 
     public String toString() {
