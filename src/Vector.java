@@ -3,7 +3,11 @@ public class Vector {
     private final double[] v;
 
     public Vector(double[] v) {
-        this.v = v;
+        // defensive copy
+        this.v = new double[v.length];
+        for (int i = 0; i < v.length; ++i) {
+            this.v[i] = v[i];
+        }
     }
 
     public Vector plus(Vector that) {
