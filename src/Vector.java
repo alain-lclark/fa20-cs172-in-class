@@ -27,6 +27,8 @@ public class Vector {
         double[] a = { 3.0, 4.0 };
         Vector vector = new Vector(a);
         StdOut.println(vector);
+        a[0] = 3.14;
+        StdOut.println(vector);
     }
 
 }
