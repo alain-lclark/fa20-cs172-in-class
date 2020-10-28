@@ -33,6 +33,7 @@ public class Vector {
         StdOut.println(vector);
         a[0] = 3.14;
         StdOut.println(vector);
+        StdOut.println("a[0] = " + a[0] + " a[1] = " + a[1]);
     }
 
 }
