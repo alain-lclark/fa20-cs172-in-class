@@ -7,9 +7,9 @@ public class Selection {
      * @param j  end of the range
      * @return true if a[i] <= a[i+1] <= ... <= a[j]
      */
-    public static boolean sorted(int[] a, int i, int j) {
+    public static boolean sorted(Comparable[] a, int i, int j) {
         for (; i < j; ++i)
-            if (a[i] > a[i + 1]) return false;
+            if (a[i].compareTo(a[i + 1]) > 0) return false;
         return true;
     }
 
@@ -17,7 +17,7 @@ public class Selection {
      * Sort the array of number using the selection sort algorithm.
      * @param a  the array to be sorted
      */
-    public static void sort(int[] a) {
+    public static void sort(Comparable[] a) {
         for (int i = 0; i < a.length - 1; ++i) {
             // pre condition: a[0 ... i] is sorted
             assert sorted(a, 0, i);
@@ -26,11 +26,11 @@ public class Selection {
             int min = i;
             // ... until proven otherwise
             for (int j = i + 1; j < a.length; ++j) {
-                if (a[j] < a[min]) min = j;
+                if (a[j].compareTo(a[min]) < 0) min = j;
             }
             // a[min] = minimum in a[i ...]
             // swap a[min] and a[i]
-            int x = a[i];
+            Comparable x = a[i];
             a[i] = a[min];
             a[min] = x;
             // post condition: a[0 ... i + 1] is sorted
@@ -39,7 +39,7 @@ public class Selection {
     }
 
     private static double runTrial(int n) {
-        int[] a = new int[n];
+        Integer[] a = new Integer[n];
         for (int i = 0; i < n; ++i)
             a[i] = StdRandom.uniform(2000000) - 1000000;
         Stopwatch timer = new Stopwatch();

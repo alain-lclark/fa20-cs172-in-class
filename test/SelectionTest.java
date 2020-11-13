@@ -6,7 +6,7 @@ class SelectionTest {
 
     @Test
     void sort() {
-        int a[] = { 5, 3, 1, 4 };
+        Integer a[] = { 5, 3, 1, 4 };
         Selection.sort(a);
         assertTrue(Selection.sorted(a, 0, a.length - 1));
     }
