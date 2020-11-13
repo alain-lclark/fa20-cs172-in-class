@@ -13,6 +13,17 @@ class InsertionTest {
         String[] s = { "zebra", "hello", "biscuit", "alligator" };
         Insertion.sort(s);
         assertTrue(Insertion.sorted(s, 0, s.length - 1));
+
+        Vector[] v = new Vector[]{ new Vector(new double[]{ 0.0, 0.1 }),
+                                   new Vector(new double[]{ 0.0 }),
+                                   new Vector(new double[]{ -1.0 })
+                                 };
+        Vector[] expect = new Vector[]{ new Vector(new double[]{ -1.0 }),
+                                        new Vector(new double[]{ 0.0 }),
+                                        new Vector(new double[]{ 0.0, 0.1 })
+                                      };
+        Insertion.sort(v);
+        assertArrayEquals(expect, v);
     }
 
 }
