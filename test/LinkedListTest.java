@@ -1,0 +1,74 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LinkedListTest {
+
+    @Test
+    void testToString() {
+        List l  = new LinkedList();
+        l.add("a");
+        l.add("b");
+        l.add("c");
+        assertEquals("[\"a\", \"b\", \"c\", ]", l.toString());
+    }
+
+    @Test
+    void testEquals() {
+        List l1  = new LinkedList();
+        l1.add("a");
+        l1.add("b");
+        l1.add("c");
+        List l2 = new LinkedList();
+        l2.add("a");
+        l2.add("b");
+        l2.add("c");
+        assertEquals(l1, l2);
+
+        List l3 = new LinkedList();
+        l3.add("a");
+        l3.add("b");
+        l3.add("z");
+        assertNotEquals(l1, l3);
+
+        List l4 = new LinkedList();
+        l4.add("a");
+        l4.add("b");
+        assertNotEquals(l1, l4);
+    }
+
+    @Test
+    void testAddAndGet() {
+        List l  = new LinkedList();
+        l.add("a");
+        l.add("b");
+        l.add("c");
+        assertEquals("a", l.get(0));
+        assertEquals("b", l.get(1));
+        assertEquals("c", l.get(2));
+    }
+
+    @Test
+    void testSize() {
+        List l  = new LinkedList();
+        assertEquals(0, l.size());
+        l.add("a");
+        l.add("b");
+        l.add("c");
+        assertEquals(3, l.size());
+    }
+
+    @Test
+    void testRemoveAt() {
+        List l  = new LinkedList();
+        l.add("a");
+        l.add("b");
+        l.add("c");
+        l.removeAt(1);
+        assertEquals("a", l.get(0));
+        assertEquals("c", l.get(1));
+        l.removeAt(0);
+        assertEquals("c", l.get(0));
+    }
+
+}
