@@ -6,7 +6,7 @@ public class LinkedListTest {
 
     @Test
     void testToString() {
-        List l  = new LinkedList();
+        List l  = new LinkedList<String>();
         l.add("a");
         l.add("b");
         l.add("c");
@@ -15,23 +15,23 @@ public class LinkedListTest {
 
     @Test
     void testEquals() {
-        List l1  = new LinkedList();
+        List l1  = new LinkedList<String>();
         l1.add("a");
         l1.add("b");
         l1.add("c");
-        List l2 = new LinkedList();
+        List l2 = new LinkedList<String>();
         l2.add("a");
         l2.add("b");
         l2.add("c");
         assertEquals(l1, l2);
 
-        List l3 = new LinkedList();
+        List l3 = new LinkedList<String>();
         l3.add("a");
         l3.add("b");
         l3.add("z");
         assertNotEquals(l1, l3);
 
-        List l4 = new LinkedList();
+        List l4 = new LinkedList<String>();
         l4.add("a");
         l4.add("b");
         assertNotEquals(l1, l4);
@@ -39,7 +39,7 @@ public class LinkedListTest {
 
     @Test
     void testAddAndGet() {
-        List l  = new LinkedList();
+        List l  = new LinkedList<String>();
         l.add("a");
         l.add("b");
         l.add("c");
@@ -50,7 +50,7 @@ public class LinkedListTest {
 
     @Test
     void testSize() {
-        List l  = new LinkedList();
+        List l  = new LinkedList<String>();
         assertEquals(0, l.size());
         l.add("a");
         l.add("b");
@@ -60,7 +60,7 @@ public class LinkedListTest {
 
     @Test
     void testRemoveAt() {
-        List l  = new LinkedList();
+        List l  = new LinkedList<String>();
         l.add("a");
         l.add("b");
         l.add("c");

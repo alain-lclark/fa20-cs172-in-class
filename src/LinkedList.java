@@ -1,10 +1,10 @@
-public class LinkedList implements List {
+public class LinkedList<E> implements List<E> {
 
     private class Node {
-        String item;
+        E item;
         Node next;
 
-        public Node(String item) {
+        public Node(E item) {
             this.item = item;
             next = null;
         }
@@ -17,7 +17,7 @@ public class LinkedList implements List {
     }
 
     @Override
-    public String get(int index) {
+    public E get(int index) {
         Node n = head;
         for (int i = 0; i < index; ++i) {
             n = n.next;
@@ -26,7 +26,7 @@ public class LinkedList implements List {
     }
 
     @Override
-    public void add(String item) {
+    public void add(E item) {
         Node n = new Node(item);
         if (head == null) {
             head = n;
