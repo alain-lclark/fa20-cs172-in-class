@@ -49,6 +49,17 @@ public class LinkedListTest {
     }
 
     @Test
+    void testAddAndGetWithInt() {
+        List l  = new LinkedList<Integer>();
+        l.add(1);
+        l.add(2);
+        l.add(3);
+        assertEquals(1, l.get(0));
+        assertEquals(2, l.get(1));
+        assertEquals(3, l.get(2));
+    }
+
+    @Test
     void testSize() {
         List l  = new LinkedList<String>();
         assertEquals(0, l.size());
