@@ -1,4 +1,4 @@
-public interface List<E> {
+public interface List<E> extends Iterable<E> {
 
     /**
      * Returns the element at position index.

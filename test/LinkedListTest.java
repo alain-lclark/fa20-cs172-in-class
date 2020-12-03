@@ -82,4 +82,17 @@ public class LinkedListTest {
         assertEquals("c", l.get(0));
     }
 
+    @Test
+    void testIterator() {
+        List<Integer> list = new LinkedList<Integer>();
+        list.add(1);
+        list.add(5);
+        list.add(-3);
+        int sum = 0;
+        for (Integer n : list) {
+            sum += n;
+        }
+        assertEquals(3, sum);
+    }
+
 }
