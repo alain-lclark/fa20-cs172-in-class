@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class LinkedList<E> implements List<E> {
 
     private class Node {
@@ -80,6 +82,26 @@ public class LinkedList<E> implements List<E> {
         }
         s += "]";
         return s;
+    }
+
+    public Iterator<E> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<E> {
+
+        Node current = head;
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        public E next() {
+            E item = current.item;
+            current = current.next;
+            return item;
+        }
+
     }
 
 }
